@@ -1,0 +1,22 @@
+note over browser:
+User writes a note inside the form field
+and click on button save
+end note
+
+note over browser:
+The script 'spa.js' has an action over submit method of the form
+that prevents the default behaviour and creates an object with
+the text value of the note and the current date, push that object
+to the notes array, clear the input text, redraw the notes, and
+send that object to the server
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server
+The server proccess that object, 
+add the new note on his data structure,
+and send a message that all works ok
+end note
+
+server-->browser: {"message":"note created"}
