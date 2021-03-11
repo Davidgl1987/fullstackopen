@@ -4,10 +4,14 @@ const Header = ({course}) => {
   return <h1>{course}</h1>
 }
 
-const Content = ({paragraphs}) => {
-  return paragraphs.map((paragraph, i) => (
-    <p key={i}>{paragraph.part} {paragraph.exercise}</p>
+const Content = ({parts}) => {
+  return parts.map((part, i) => (
+    <Part key={i} name={part.name} exercise={part.exercise} />
   ))
+}
+
+const Part = ({name, exercise}) => {
+  return <p>{name} {exercise}</p>
 }
 
 const Total = ({exercises}) => {
@@ -27,10 +31,10 @@ const App = () => {
     <div>
       <Header course={course} />
       <Content 
-        paragraphs={[
-          {part: part1, exercise: exercises1},
-          {part: part2, exercise: exercises2},
-          {part: part3, exercise: exercises3},
+        parts={[
+          {name: part1, exercise: exercises1},
+          {name: part2, exercise: exercises2},
+          {name: part3, exercise: exercises3},
         ]}
       />
       <Total exercises={exercises1 + exercises2 + exercises3} />
